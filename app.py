@@ -1,10 +1,12 @@
-import streamlit as st
-import struct
-import pyperclip
-import sympy
 import math
+import struct
+
 import numpy as np
 import pandas as pd
+import pyperclip
+import streamlit as st
+import sympy
+
 
 # 10進数の数字をIEEE754形式のバイナリに変換する関数
 def decimal_to_binary(decimal):
