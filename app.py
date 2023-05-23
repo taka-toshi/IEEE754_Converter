@@ -38,7 +38,6 @@ try:
     en = eval(n)
     if type(en) != float and type(en) != int:
         st.error(type(en))
-        st.error("ここでエラーが発生しました。")
         raise ValueError('計算式が正しくありません。')
 except:
     st.error('計算式が正しくありません。')
@@ -75,7 +74,8 @@ for r in replace_list:
 
 st.write('変換結果')
 try:
-    st.write(str(binary_to_decimal(str(b))))
+    d = binary_to_decimal(str(b))
+    st.write(str(d))
 except:
     st.error('Binary string must be 64 bits (8 bytes).')
 
@@ -87,12 +87,20 @@ try:
 except:
     v1 = 0.1
 
-ans = st.text_input('答えを入力してください。', value=str(v1))
+st.write('上記の変換結果と一致するか確認します。')
+ans = st.text_input('答えを入力してください。', value=str(v1),
+                    help="式でも構いませんが、計算結果が一致するか確認することを目的としているため、オススメしません。\n\n"
+                   + "pythonのeval関数に対応しています。\n\n"
+                  +"math,numpy,pandasモジュールの使用が可能です。\n\n")
 try:
     ans = eval(ans)
+    if type(ans) != float and type(ans) != int:
+        st.error(type(ans))
+        raise ValueError('計算式が正しくありません。')
 except:
     st.error('計算式が正しくありません。')
     st.stop()
 
-evaluation = eval(str(binary_to_decimal(str(b)))+"=="+str(ans))
+evaluation = eval(str(d)+"=="+str(ans))
+
 st.write(evaluation)
