@@ -100,5 +100,7 @@ try:
 except:
     st.error('計算式が正しくありません。')
     st.stop()
+
 evaluation = eval(str(d)+"=="+str(ans))
+
 st.write(evaluation)
