@@ -51,7 +51,6 @@ st.write('変換結果')
 s1 = '&ensp;'.join([s1[i:i + 4] for i in range(0, len(s1), 4)])
 st.write(s1, unsafe_allow_html=True)
 
-# s1 を16進数で表現
 s3 = binary_to_hex(s2)
 s3 = s3[2:] # s3から 0xを削除
 s3 = ' &ensp;&ensp;&ensp; '.join([s3[i:i + 1] for i in range(0, len(s3), 1)])
@@ -64,7 +63,6 @@ if copy:
     pyperclip.copy(s)
     c2.info('クリップボードにコピーしました。')
 
-# 区切り線
 st.markdown('***')
 st.markdown('#### IEEE754形式のバイナリを入力してください。')
 
